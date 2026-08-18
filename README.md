@@ -1,4 +1,5 @@
-Contents:
-Website code zip
-Website screen shots
-Java script assignment
+## Contents
+
+- Website code zip
+- Website screenshots
+- JavaScript assignment
