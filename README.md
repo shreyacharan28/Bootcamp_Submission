@@ -5,3 +5,4 @@
 - JavaScript assignment
 - Web Scrapping file
 - Web Scrapping project screenshots
+- Python Assignment
