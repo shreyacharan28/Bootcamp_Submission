@@ -6,5 +6,5 @@
 - Web Scrapping file
 - Web Scrapping project screenshots
 - Python Assignment
--Django Project
+- Django Project
 
