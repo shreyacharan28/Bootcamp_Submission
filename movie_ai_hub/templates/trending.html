@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<div class="page-head"><div><span class="eyebrow">POPULARITY ENGINE</span><h1>Trending Movies</h1><p>Ranked from the local popularity score in the demo dataset.</p></div></div><div class="grid">{% for movie in movies %}{% include "partials/movie_card.html" %}{% endfor %}</div>{% endblock %}

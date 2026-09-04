@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}{{ kind }} — Movie AI Hub{% endblock %}
+{% block content %}<div class="page-head"><div><span class="eyebrow">PEOPLE</span><h1>{{ kind }}</h1></div></div>
+<form class="filters"><input name="q" placeholder="Search {{ kind|lower }}"><button class="btn">Search</button></form>
+<div class="people-grid">{% for item in items %}<a class="profile-card" href="{% url detail_url item.pk %}"><div class="avatar">👤</div><h3>{{ item.name }}</h3><p>{{ item.nationality|default:"Entertainment professional" }}</p></a>{% empty %}<div class="empty">No results.</div>{% endfor %}</div>{% endblock %}

@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}{{ person.name }} — Movie AI Hub{% endblock %}
+{% block content %}<section class="profile-hero"><div class="avatar huge">👤</div><div><span class="eyebrow">{{ kind|upper }}</span><h1>{{ person.name }}</h1><p>{{ person.biography }}</p><p>{{ person.nationality }}{% if person.date_of_birth %} · Born {{ person.date_of_birth }}{% endif %}</p></div></section><h2>Filmography</h2><div class="grid">{% for movie in movies %}{% include "partials/movie_card.html" %}{% endfor %}</div>{% endblock %}

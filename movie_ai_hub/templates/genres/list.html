@@ -1,0 +1,2 @@
+{% extends "base.html" %}
+{% block content %}<div class="page-head"><div><span class="eyebrow">EXPLORE BY CATEGORY</span><h1>Genres</h1></div></div><div class="genre-grid">{% for genre in genres %}<a href="{% url 'genre_detail' genre.pk %}" class="genre-card"><span>✦</span><h2>{{ genre.name }}</h2><p>{{ genre.movies.count }} movies</p></a>{% endfor %}</div>{% endblock %}

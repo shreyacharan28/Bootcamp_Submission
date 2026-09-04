@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}Movies — Movie AI Hub{% endblock %}
+{% block content %}
+<div class="page-head"><div><span class="eyebrow">CATALOG</span><h1>Movies</h1><p>Search and filter the movie database.</p></div></div>
+<form class="filters"><input name="q" placeholder="Search title, keyword or synopsis" value="{{ query }}"><select name="genre"><option value="">All genres</option>{% for g in genres %}<option value="{{ g.id }}">{{ g.name }}</option>{% endfor %}</select><input name="min_rating" type="number" min="0" max="10" step=".1" placeholder="Min rating"><button class="btn">Filter</button></form>
+<div class="grid">{% for movie in movies %}{% include "partials/movie_card.html" %}{% empty %}<div class="empty">No movies matched your search.</div>{% endfor %}</div>
+{% endblock %}

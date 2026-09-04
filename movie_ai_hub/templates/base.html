@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Movie AI Hub{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'css/app.css' %}">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="{% url 'home' %}"><span>🎬</span> Movie AI Hub</a>
+  <button class="menu-btn" onclick="document.body.classList.toggle('nav-open')">☰</button>
+  <nav>
+    <a href="{% url 'movies' %}">Movies</a>
+    <a href="{% url 'actors' %}">Actors</a>
+    <a href="{% url 'directors' %}">Directors</a>
+    <a href="{% url 'genres' %}">Genres</a>
+    <a href="{% url 'trending' %}">Trending</a>
+    <a href="{% url 'statistics' %}">Analytics</a>
+    <a href="{% url 'ai' %}" class="ai-link">✦ AI Assistant</a>
+  </nav>
+  <form class="nav-search" action="{% url 'search' %}"><input name="q" placeholder="Search movies, people..." value="{{ request.GET.q }}"></form>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer>Movie AI Hub · Local analytics demo · Built with Django</footer>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

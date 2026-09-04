@@ -1,0 +1,2 @@
+{% extends "base.html" %}
+{% block content %}<div class="page-head"><div><span class="eyebrow">AUDIENCE VOICE</span><h1>Reviews & Sentiment</h1><p>Local sentiment analysis is attached to every seeded review.</p></div></div>{% for review in reviews %}<div class="review"><div><strong>{{ review.movie.title }}</strong> · <b>{{ review.title }}</b></div><div class="rating">★ {{ review.rating }}/10 · {{ review.sentiment|title }}</div><p>{{ review.text }}</p></div>{% endfor %}{% endblock %}

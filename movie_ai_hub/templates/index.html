@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Movie AI Hub — Dashboard{% endblock %}
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="eyebrow">INTELLIGENT ENTERTAINMENT ANALYTICS</span>
+    <h1>Discover movies.<br><em>Understand the data.</em></h1>
+    <p>Explore films, people, ratings, box office and personalized recommendations through one cinematic analytics platform.</p>
+    <div class="actions"><a class="btn" href="{% url 'ai' %}">Ask the AI ✦</a><a class="btn ghost" href="{% url 'movies' %}">Explore Movies</a></div>
+  </div>
+  <div class="hero-card"><div class="orb">🎬</div><strong>AI Movie Assistant</strong><p>“Recommend something like Interstellar.”</p></div>
+</section>
+<section class="stats">
+{% for label,value in stats.items %}
+  {% if label != "top_rated" and label != "top_grossing" and label != "top_genre" %}
+  <div class="stat"><span>{{ label|title }}</span><b>{{ value }}</b></div>
+  {% endif %}
+{% endfor %}
+</section>
+<section class="section-head"><div><span class="eyebrow">TRENDING NOW</span><h2>Popular picks</h2></div><a href="{% url 'trending' %}">View all →</a></section>
+<div class="grid">{% for movie in trending %}{% include "partials/movie_card.html" %}{% endfor %}</div>
+<section class="section-head"><div><span class="eyebrow">CRITICS & AUDIENCE</span><h2>Highest rated</h2></div></section>
+<div class="grid">{% for movie in top_rated %}{% include "partials/movie_card.html" %}{% endfor %}</div>
+{% endblock %}

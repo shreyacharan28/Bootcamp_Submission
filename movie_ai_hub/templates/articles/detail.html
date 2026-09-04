@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<article class="article"><span class="eyebrow">{{ article.category|upper }}</span><h1>{{ article.title }}</h1><p class="lead">{{ article.summary }}</p><p>{{ article.content }}</p><small>By {{ article.author }} · {{ article.published_date }}</small></article>{% endblock %}

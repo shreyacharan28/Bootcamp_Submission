@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}{{ movie.title }} — Movie AI Hub{% endblock %}
+{% block content %}
+<section class="detail-hero"><div class="poster large"><span>🎬</span></div><div><span class="eyebrow">MOVIE PROFILE</span><h1>{{ movie.title }}</h1><div class="rating big">★ {{ movie.average_rating }}/10 <span>{{ movie.vote_count }} votes</span></div><p>{{ movie.synopsis }}</p><div class="chips">{% for g in movie.genres.all %}<span>{{ g.name }}</span>{% endfor %}</div><p class="meta">{{ movie.release_date }} · {{ movie.runtime }} min · {{ movie.language }} · {{ movie.certification }}</p>{% if movie.director %}<p>Directed by <a href="{% url 'director_detail' movie.director.pk %}">{{ movie.director.name }}</a></p>{% endif %}</div></section>
+<section class="section-head"><h2>Cast</h2></section><div class="people-row">{% for actor in movie.cast.all %}<a class="person-chip" href="{% url 'actor_detail' actor.pk %}">🎭 {{ actor.name }}</a>{% endfor %}</div>
+<section class="section-head"><h2>Why you may like it</h2></section><div class="grid">{% for rec,score in recommendations %}{% include "partials/movie_card.html" with movie=rec %}{% empty %}<p>No recommendations yet.</p>{% endfor %}</div>
+<section class="section-head"><h2>Audience reviews</h2></section>{% for review in reviews %}<div class="review"><strong>{{ review.title }}</strong><span class="rating">★ {{ review.rating }}/10 · {{ review.sentiment }}</span><p>{{ review.text }}</p></div>{% endfor %}
+{% endblock %}

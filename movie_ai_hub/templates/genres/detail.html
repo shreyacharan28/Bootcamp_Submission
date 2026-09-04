@@ -1,0 +1,2 @@
+{% extends "base.html" %}
+{% block content %}<div class="page-head"><div><span class="eyebrow">GENRE</span><h1>{{ genre.name }}</h1><p>{{ genre.description }}</p></div></div><div class="grid">{% for movie in movies %}{% include "partials/movie_card.html" %}{% endfor %}</div>{% endblock %}
